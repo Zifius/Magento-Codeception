@@ -1,5 +1,9 @@
 # Magento CodeCeption Tests
 
+## Implemented Tests
+
+* One Page Checkout
+
 ## Prerequisites
 
 * Granted [HomeBrew](http://homebrew.sh) is installed, execute:

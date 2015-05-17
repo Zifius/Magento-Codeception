@@ -11,7 +11,7 @@ modules:
         - AcceptanceHelper
     config:
         WebDriver:
-            url: http://elastic.dev/
+            url: http://magento.dev/
             browser: chrome
             clear_cookies: false
             window_size: maximize
