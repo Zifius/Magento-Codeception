@@ -20,5 +20,4 @@ env:
         modules:
             config:
                 WebDriver:
-                    url: http://magento.dev/
                     browser: phantomjs
