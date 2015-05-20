@@ -6,9 +6,9 @@
 
 ## Prerequisites
 
-* Granted [HomeBrew](http://homebrew.sh) is installed, execute:
+* Granted [HomeBrew](http://homebrew.sh) and [homebrew-php](https://github.com/Homebrew/homebrew-php#installation) are installed, execute:
     `brew install codecept`
-* For Selenium:
+* Selenium:
     `brew install selenium-server-standalone` and optionally `brew install chromedriver` if you want to test with Google Chrome
 * PhantomJS:
     `brew install phantomjs`
