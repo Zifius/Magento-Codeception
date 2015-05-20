@@ -15,3 +15,10 @@ modules:
             browser: chrome
             clear_cookies: false
             window_size: maximize
+env:
+    phantomjs:
+        modules:
+            config:
+                WebDriver:
+                    url: http://magento.dev/
+                    browser: phantomjs

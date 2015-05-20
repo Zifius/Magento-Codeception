@@ -1,4 +1,4 @@
-# Magento CodeCeption Tests
+# Magento Codeception Tests
 
 ## Implemented Tests
 
