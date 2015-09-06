@@ -11,7 +11,7 @@ modules:
         - AcceptanceHelper
     config:
         WebDriver:
-            url: http://magento.dev/
+            url: http://mage.dev/
             browser: chrome
             clear_cookies: false
             window_size: maximize
