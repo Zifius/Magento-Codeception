@@ -5,7 +5,6 @@ class Catalog
 {
     public static $CATEGORY_URL = '/accessories/eyewear.html';
     public static $CATEGORY_URL_17 = '/furniture.html';
-    public static $CART_URL = '/checkout/cart/';
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
