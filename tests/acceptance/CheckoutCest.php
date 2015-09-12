@@ -1,6 +1,7 @@
 <?php
 
 use \AcceptanceTester as AT;
+use Page\Acceptance as Page;
 
 // @codingStandardsIgnoreFile
 
@@ -30,21 +31,21 @@ class CheckoutCest
         $I->wantTo('Add product to cart');
 
         $I->amGoingTo('open category page');
-        $I->amOnPage('/furniture.html');
+        $I->amOnPage(Page\Catalog::$CATEGORY_URL);
         $I->expectTo('see category page');
 
         $I->amGoingTo('open product page');
-        $I->click('ul.products-grid.first li.first a');
+        $I->click(Page\Catalog::$categoryFirstProduct);
         $I->expectTo('see product page');
-        $I->seeElement('.catalog-product-view');
+        $I->seeElement(Page\Catalog::$productBodyClass);
 
         $I->amGoingTo('submit the form');
-        $I->submitForm('#product_addtocart_form', array());
+        $I->submitForm(Page\Catalog::$addToCartForm, array());
 
         $I->expectTo('see the cart page');
-        $I->seeCurrentUrlEquals('/checkout/cart/');
+        $I->seeCurrentUrlEquals(Page\Catalog::$CART_URL);
         $I->expectTo('see a success message');
-        $I->seeElement('li.success-msg');
+        $I->seeElement(Page\Catalog::$successMessage);
     }
 
     /**
