@@ -37,7 +37,7 @@ class CheckoutCest
         $I->amGoingTo('open product page');
         $I->click(Page\Catalog::$categoryFirstProduct);
         $I->expectTo('see product page');
-        $I->seeElement(Page\Catalog::$productBodyClass);
+        $I->seeElement(Page\Catalog::$productBody);
 
         $I->amGoingTo('submit the form');
         $I->submitForm(Page\Catalog::$addToCartForm, array());
