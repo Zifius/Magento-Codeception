@@ -17,14 +17,14 @@ class Checkout
     public static $continueButton = 'button#onepage-guest-register-button';
 
     const BILLING_PREFIX = '#billing:';
-    public static $billingFirstname = self::BILLING_PREFIX . 'firstname';
-    public static $billingLastname = self::BILLING_PREFIX . 'lastname';
-    public static $billingEmail = self::BILLING_PREFIX . 'email';
-    public static $billingCountryId = self::BILLING_PREFIX . 'country_id';
-    public static $billingStreet1 = self::BILLING_PREFIX . 'street1';
-    public static $billingPostcode = self::BILLING_PREFIX . 'postcode';
-    public static $billingCity = self::BILLING_PREFIX . 'city';
-    public static $billingTelephone = self::BILLING_PREFIX . 'telephone';
+    public static $billingFirstname;
+    public static $billingLastname;
+    public static $billingEmail;
+    public static $billingCountryId;
+    public static $billingStreet1;
+    public static $billingPostcode;
+    public static $billingCity;
+    public static $billingTelephone;
     public static $billingAddressContainer = '#billing-buttons-container';
 
     public static $shippingButtonsContainer = '#shipping-method-buttons-container';
@@ -43,6 +43,14 @@ class Checkout
     public function __construct(\AcceptanceTester $I)
     {
         $this->acceptanceTester = $I;
+        $this->billingFirstname = self::BILLING_PREFIX . 'firstname';
+        $this->billingLastname = self::BILLING_PREFIX . 'lastname';
+        $this->billingEmail = self::BILLING_PREFIX . 'email';
+        $this->billingCountryId = self::BILLING_PREFIX . 'country_id';
+        $this->billingStreet1 = self::BILLING_PREFIX . 'street1';
+        $this->billingPostcode = self::BILLING_PREFIX . 'postcode';
+        $this->billingCity = self::BILLING_PREFIX . 'city';
+        $this->billingTelephone = self::BILLING_PREFIX . 'telephone';
     }
 
 }
