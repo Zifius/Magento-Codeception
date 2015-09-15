@@ -30,8 +30,8 @@ class Checkout
     public static $paymentButtonsContainer = '#payment-buttons-container';
     public static $checkoutReviewContainer = '#checkout-review-submit';
 
-    public static $shippingMethodInput = '#s_method_flatrate_flatrate';
-    public static $shippingMethod = 'flatrate_flatrate';
+    public static $shippingMethodInput = 'form input[name=shipping_method]';
+    public static $shippingMethod = '';
     public static $paymentMethod = '#p_method_checkmo';
 
     /**
