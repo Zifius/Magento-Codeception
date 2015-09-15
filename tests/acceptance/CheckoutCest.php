@@ -8,6 +8,11 @@ use Page\Acceptance as Page;
 class CheckoutCest
 {
     /**
+     * Parent configuration node for custom values 
+    */
+    const CONFIG_NODE = 'checkout';
+    
+    /**
      * Tests add product to cart
      *
      * @group checkout
@@ -60,14 +65,14 @@ class CheckoutCest
         $I->click(Page\Checkout::$continueButton);
 
         $I->amGoingTo('fill my address');
-        $I->fillField(Page\Checkout::$billingFirstname, 'Acceptance');
-        $I->fillField(Page\Checkout::$billingLastname, 'Tester');
-        $I->fillField(Page\Checkout::$billingEmail, 'codeception@test.com');
-        $I->selectOption(Page\Checkout::$billingCountryId, 'GB');
-        $I->fillField(Page\Checkout::$billingStreet1, 'Baker Str. 1');
-        $I->fillField(Page\Checkout::$billingPostcode, '10000');
-        $I->fillField(Page\Checkout::$billingCity, 'London');
-        $I->fillField(Page\Checkout::$billingTelephone, '911');
+        $I->fillField(Page\Checkout::$billingFirstname, $this->getConfig('firstname'));
+        $I->fillField(Page\Checkout::$billingLastname, $this->getConfig('lastname'));
+        $I->fillField(Page\Checkout::$billingEmail, $this->getConfig('email'));
+        $I->selectOption(Page\Checkout::$billingCountryId, $this->getConfig('country_id'));
+        $I->fillField(Page\Checkout::$billingStreet1, $this->getConfig('street'));
+        $I->fillField(Page\Checkout::$billingPostcode, $this->getConfig('postcode'));
+        $I->fillField(Page\Checkout::$billingCity, $this->getConfig('city'));
+        $I->fillField(Page\Checkout::$billingTelephone, $this->getConfig('phone'));
         $I->click('button', Page\Checkout::$billingAddressContainer);
 
         $I->amGoingTo('select shipping method');
@@ -102,5 +107,15 @@ class CheckoutCest
         $I->seeInCurrentUrl(Page\Checkout::$SUCCESS_URL);
         $I->expectTo('be a happy customer');
     }
-
+    
+    /**
+     * Returns a configuration value for selected key
+     * 
+     * @param $configKey string
+     */
+    protected function getConfig($configKey)
+    {
+        $config = \Codeception\Configuration::config();
+        return $config['values'][self::CONFIG_NODE][$configKey];
+    }
 }

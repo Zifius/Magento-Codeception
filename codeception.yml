@@ -16,3 +16,13 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+values:
+    checkout:
+        firstname: 'Acceptance'
+        lastname: 'Tester'
+        email: 'codeception@test.com'
+        country_id: 'GB'
+        street: 'Baker Str. 1'
+        postcode: '10000'
+        city: 'London'
+        phone: '911'
