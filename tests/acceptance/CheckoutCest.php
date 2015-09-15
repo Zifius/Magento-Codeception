@@ -1,21 +1,12 @@
 <?php
 
 use \AcceptanceTester as AT;
+use Page\Acceptance as Page;
 
 // @codingStandardsIgnoreFile
 
 class CheckoutCest
 {
-    public function _before(AT $I)
-    {
-
-    }
-
-    public function _after(AT $I)
-    {
-
-    }
-
     /**
      * Tests add product to cart
      *
@@ -30,21 +21,21 @@ class CheckoutCest
         $I->wantTo('Add product to cart');
 
         $I->amGoingTo('open category page');
-        $I->amOnPage('/furniture.html');
+        $I->amOnPage(Page\Catalog::$CATEGORY_URL);
         $I->expectTo('see category page');
 
         $I->amGoingTo('open product page');
-        $I->click('ul.products-grid.first li.first a');
+        $I->click(Page\Catalog::$categoryFirstProduct);
         $I->expectTo('see product page');
-        $I->seeElement('.catalog-product-view');
+        $I->seeElement(Page\Catalog::$productBody);
 
         $I->amGoingTo('submit the form');
-        $I->submitForm('#product_addtocart_form', array());
+        $I->submitForm(Page\Catalog::$addToCartForm, array());
 
         $I->expectTo('see the cart page');
-        $I->seeCurrentUrlEquals('/checkout/cart/');
+        $I->seeCurrentUrlEquals(Page\Checkout::$CART_URL);
         $I->expectTo('see a success message');
-        $I->seeElement('li.success-msg');
+        $I->seeElement(Page\Catalog::$successMessage);
     }
 
     /**
@@ -62,45 +53,42 @@ class CheckoutCest
         $I->wantTo('use One Page Checkout');
         $I->lookForwardTo('experience flawless checkout');
         $I->amGoingTo('place an order as a guest');
-        $I->amOnPage('/checkout/onepage/');
+        $I->amOnPage(Page\Checkout::$URL);
 
         $I->amGoingTo('select the checkout type');
-        $I->selectOption('#login:guest', 'guest');
-        $I->click('button#onepage-guest-register-button', '#checkout-step-login');
+        $I->selectOption(Page\Checkout::$radioTypeGuest, 'guest');
+        $I->click(Page\Checkout::$continueButton);
 
         $I->amGoingTo('fill my address');
-        $I->fillField('#billing:firstname', 'Acceptance');
-        $I->fillField('#billing:lastname', 'Tester');
-        $I->fillField('#billing:email', 'codeception@test.com');
-        $I->selectOption('#billing:country_id', 'GB');
-        $I->fillField('#billing:street1', 'Baker Str. 1');
-        $I->fillField('#billing:postcode', '10000');
-        $I->fillField('#billing:city', 'London');
-        $I->fillField('#billing:telephone', '911');
-        $I->click('button', '#billing-buttons-container');
+        $I->fillField(Page\Checkout::$billingFirstname, 'Acceptance');
+        $I->fillField(Page\Checkout::$billingLastname, 'Tester');
+        $I->fillField(Page\Checkout::$billingEmail, 'codeception@test.com');
+        $I->selectOption(Page\Checkout::$billingCountryId, 'GB');
+        $I->fillField(Page\Checkout::$billingStreet1, 'Baker Str. 1');
+        $I->fillField(Page\Checkout::$billingPostcode, '10000');
+        $I->fillField(Page\Checkout::$billingCity, 'London');
+        $I->fillField(Page\Checkout::$billingTelephone, '911');
+        $I->click('button', Page\Checkout::$billingAddressContainer);
 
-        // TODO: Implement your shipping methods selection here
-        /*
         $I->amGoingTo('select shipping method');
-        $I->selectOption('input[name="shipping_method"]', '?');
-        */
+        $I->waitForElementVisible(Page\Checkout::$shippingButtonsContainer);
+        $I->selectOption(Page\Checkout::$shippingMethodInput, Page\Checkout::$shippingMethod);
+        $I->click('button', Page\Checkout::$shippingButtonsContainer);
 
-        $I->waitForElementVisible('#shipping-method-buttons-container');
-        $I->click('button', '#shipping-method-buttons-container');
+        $I->waitForElementVisible(Page\Checkout::$paymentButtonsContainer);
+        // $I->amGoingTo('select payment method');
+        // $I->click(Page\Checkout::$paymentMethod);
+        $I->click('button', Page\Checkout::$paymentButtonsContainer);
 
-        $I->waitForElementVisible('#payment-buttons-container');
-        $I->amGoingTo('select payment method');
-        $I->click('#p_method_checkmo');
-        $I->click('button', '#payment-buttons-container');
-
-        $I->waitForElementVisible('#checkout-review-submit');
+        $I->waitForElementVisible(Page\Checkout::$checkoutReviewContainer);
         $I->amGoingTo('review and finish my order');
-        $I->click('button', '#checkout-review-submit');
+        $I->click('button', Page\Checkout::$checkoutReviewContainer);
         $I->wait(7);
     }
 
     /**
      * Tests Checkout Success page
+     *
      * @group checkout
      *
      * @param $I AcceptanceTester
@@ -111,7 +99,7 @@ class CheckoutCest
     {
         $I->wantTo('Observe the order success page');
         $I->expectTo('see order success page');
-        $I->seeInCurrentUrl('/checkout/onepage/success');
+        $I->seeInCurrentUrl(Page\Checkout::$SUCCESS_URL);
         $I->expectTo('be a happy customer');
     }
 
