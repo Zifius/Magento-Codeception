@@ -12,12 +12,6 @@ modules:
     config:
         WebDriver:
             url: http://mage.dev/
-            browser: chrome
+            browser: phantomjs
             clear_cookies: false
             window_size: maximize
-env:
-    phantomjs:
-        modules:
-            config:
-                WebDriver:
-                    browser: phantomjs

@@ -1,0 +1,5 @@
+# `chrome` environment config goes here
+modules:
+    config:
+        WebDriver:
+            browser: chrome

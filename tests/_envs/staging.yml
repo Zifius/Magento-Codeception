@@ -1,0 +1,5 @@
+# `staging` environment config goes here
+modules:
+    config:
+        WebDriver:
+            url: 'http://user:password@stage.server.tld'
