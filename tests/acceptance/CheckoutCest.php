@@ -116,6 +116,7 @@ class CheckoutCest
     protected function getConfig($configKey)
     {
         $config = \Codeception\Configuration::config();
-        return $config['values'][self::CONFIG_NODE][$configKey];
+        $suiteSettings = \Codeception\Configuration::suiteSettings('acceptance', $config);
+        return $suiteSettings['data'][self::CONFIG_NODE][$configKey];
     }
 }

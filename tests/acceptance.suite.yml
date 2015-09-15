@@ -15,3 +15,13 @@ modules:
             browser: phantomjs
             clear_cookies: false
             window_size: maximize
+data:
+    checkout:
+        firstname: 'Acceptance'
+        lastname: 'Tester'
+        email: 'codeception@test.com'
+        country_id: 'GB'
+        street: 'Baker Str. 1'
+        postcode: '10000'
+        city: 'London'
+        phone: '911'
