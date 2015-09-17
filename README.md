@@ -12,6 +12,11 @@
     `brew install selenium-server-standalone` and optionally `brew install chromedriver` if you want to test with Google Chrome
 * PhantomJS:
     `brew install phantomjs`
+    
+## Configuration
+
+* PhantomJS driver is a headless browser which means it's not suitable for browser environments like `chrome` or `firefox`
+* Website URL to tests against is defined in acceptance.suite.yml
 
 ## Running tests
 
