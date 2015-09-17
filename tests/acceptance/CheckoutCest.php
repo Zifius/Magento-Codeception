@@ -22,7 +22,7 @@ class CheckoutCest
      */
     public function testAddProductToCart(AT $I)
     {
-        $I->am('Visitor');
+        $I->am('Customer');
         $I->wantTo('Add product to cart');
 
         $I->amGoingTo('open category page');
@@ -54,7 +54,7 @@ class CheckoutCest
      */
     public function testOnePageCheckout(AT $I)
     {
-        $I->am('Guest Customer');
+        $I->am('Customer');
         $I->wantTo('use One Page Checkout');
         $I->lookForwardTo('experience flawless checkout');
         $I->amGoingTo('place an order as a guest');
@@ -88,7 +88,7 @@ class CheckoutCest
         $I->waitForElementVisible(Page\Checkout::$checkoutReviewContainer);
         $I->amGoingTo('review and finish my order');
         $I->click('button', Page\Checkout::$checkoutReviewContainer);
-        $I->wait(7);
+        $I->wait($this->getConfig('timeout'));
     }
 
     /**

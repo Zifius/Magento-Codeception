@@ -25,3 +25,4 @@ data:
         postcode: '10000'
         city: 'London'
         phone: '911'
+        timeout: 7
