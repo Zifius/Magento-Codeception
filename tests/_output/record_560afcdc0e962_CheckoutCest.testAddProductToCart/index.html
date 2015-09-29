@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recorder Result</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        .carousel,
+        .item,
+        .active {
+            height: 100%;
+        }
+        .navbar {
+            margin-bottom: 0px !important;
+        }
+        .carousel-caption {
+            background: rgba(0,0,0,0.8);
+            padding-bottom: 50px !important;
+        }
+        .carousel-caption.error {
+            background: #c0392b !important;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        .fill {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            overflow-y: scroll;
+            background-position: top;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Add product to cart
+                <small>CheckoutCest::testAddProductToCart</small>
+            </a>
+        </div>
+    </nav>
+    <header id="steps" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#steps" data-slide-to="0" class="active"></li><li data-target="#steps" data-slide-to="1" ></li><li data-target="#steps" data-slide-to="2" ></li><li data-target="#steps" data-slide-to="3" ></li><li data-target="#steps" data-slide-to="4" ></li><li data-target="#steps" data-slide-to="5" ></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+    <div class="fill">
+        <img src="000.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I am on page <span style="color: #3498db">"/accessories/eyewear.html"</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div><div class="item ">
+    <div class="fill">
+        <img src="001.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I click <span style="color: #3498db">"ul.products-grid.first li.item a"</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div><div class="item ">
+    <div class="fill">
+        <img src="002.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I see element <span style="color: #3498db">".catalog-product-view"</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div><div class="item ">
+    <div class="fill">
+        <img src="003.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I submit form <span style="color: #3498db">"#product_addtocart_form",</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div><div class="item ">
+    <div class="fill">
+        <img src="004.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I see current url equals <span style="color: #3498db">"/checkout/cart/"</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div><div class="item ">
+    <div class="fill">
+        <img src="005.png">
+    </div>
+    <div class="carousel-caption ">
+        <h2>I see element <span style="color: #3498db">"li.success-msg"</span></h2>
+        <small>scroll up and down to see the full page</small>
+    </div>
+</div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#steps" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#steps" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        wrap: true,
+        interval: false
+    })
+
+    $(document).bind('keyup', function(e) {
+      if(e.keyCode==39){
+      jQuery('a.carousel-control.right').trigger('click');
+      }
+
+      else if(e.keyCode==37){
+      jQuery('a.carousel-control.left').trigger('click');
+      }
+
+    });
+
+    </script>
+
+</body>
+
+</html>
