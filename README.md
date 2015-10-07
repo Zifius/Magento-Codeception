@@ -4,6 +4,11 @@
 
 * One Page Checkout
 
+## Contributors (Thanks!)
+
+[Max Uroda](https://github.com/u-maxx)
+[Yaroslav Rogoza](https://github.com/rogyar)
+
 ## Prerequisites
 
 * Granted [HomeBrew](http://homebrew.sh) and [homebrew-php](https://github.com/Homebrew/homebrew-php#installation) are installed, execute:
