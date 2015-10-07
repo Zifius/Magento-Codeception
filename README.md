@@ -7,6 +7,7 @@
 ## Contributors (Thanks!)
 
 [Max Uroda](https://github.com/u-maxx)
+
 [Yaroslav Rogoza](https://github.com/rogyar)
 
 ## Prerequisites
